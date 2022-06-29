@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="WML.Views.Car"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Style="{StaticResource Label0}" Content="{Binding LabelCar}"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" MinWidth="420"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="5, 5, 10, 5" 
+                    Style="{StaticResource Border0}"
+                    Background="GhostWhite" BorderBrush="Silver" 
+                 BorderThickness="2" CornerRadius="8,8,8,8">
+                <!--  Grid.Row="1" -->
+                <DataGrid x:Name="_DGOfCar" Width="560" 
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    ItemsSource="{Binding Cars.Items}"
+                    SelectedItem="{Binding SelectedCar}"
+                    AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding  CarName}" Header="Car"/>
+                        <DataGridTextColumn Binding="{Binding  LoggerName}" Header="Logger"/>
+                        <DataGridTextColumn Binding="{Binding  DTSend}" Header="Дата send"/>
+                        <DataGridTextColumn Binding="{Binding  DTSave}" Header="Дата save"/>
+                        <DataGridTextColumn Binding="{Binding  Size}" Header="%"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Border>
+
+            <ContentControl Grid.Column="1"
+                        prism:RegionManager.RegionName="CarDetalsRegion"
+                        prism:RegionManager.RegionContext="{Binding SelectedItem, ElementName=_DGOfCar}"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
+
+    

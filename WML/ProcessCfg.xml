@@ -1,0 +1,1396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unican2dnv>
+  <servers>
+    <fileserver prototype="local" name="bc80b710-d169-406a-9934-f6b969d150dd">
+      <params>
+        <param name="baseDirectory" value="C:\\CSMUNICAN2\\UPLOAD\\" />
+        <param name="maxSessions" value="10" />
+      </params>
+    </fileserver>
+    <fileserver prototype="local" name="955e1679-df45-4768-b70d-c60792c2d845">
+      <params>
+        <param name="baseDirectory" value="C:\\LOGs\\CSM_UniCAN2\\" />
+        <param name="maxSessions" value="10" />
+      </params>
+    </fileserver>
+  </servers>
+  <jobs>
+    <datalogger deviceId="U02563">
+      <params>
+        <param name="VIN" value="PS218SEDLogger1" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02993">
+      <params>
+        <param name="VIN" value="PS156SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02997">
+      <params>
+        <param name="VIN" value="PTA02PMOT" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02995">
+      <params>
+        <param name="VIN" value="PS220SEDLogger2" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02996">
+      <params>
+        <param name="VIN" value="PTA03PMOT" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03002">
+      <params>
+        <param name="VIN" value="PS109SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03010">
+      <params>
+        <param name="VIN" value="TT02SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03009">
+      <params>
+        <param name="VIN" value="PS112SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02562">
+      <params>
+        <param name="VIN" value="PS81SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03011">
+      <params>
+        <param name="VIN" value="PS33SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02998">
+      <params>
+        <param name="VIN" value="PTA02SUV" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03000">
+      <params>
+        <param name="VIN" value="TT02SEDLogger2" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U03001">
+      <params>
+        <param name="VIN" value="PS218SEDLogger2" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U01882">
+      <params>
+        <param name="VIN" value="PS220SEDLogger1" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="U02554">
+      <params>
+        <param name="VIN" value="PS65SED" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="X00385">
+      <params>
+        <param name="VIN" value="GAZ_385-UC3DL" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+    <datalogger deviceId="X00388">
+      <params>
+        <param name="VIN" value="GAZ_388-UC3DL" />
+      </params>
+      <serverref fileserver="bc80b710-d169-406a-9934-f6b969d150dd" />
+      <download cycleTime="600" maxRetries="10" retryCycleTime="60" delayTime="1" />
+      <archive cycleTime="7200" maxAge="8640000" delayTime="1" />
+      <outputfiles groupName=".*" type="channelData">
+        <outputMDF>
+          <params>
+            <param name="author" value="UniCAN 2/3" />
+            <param name="department" value="" />
+            <param name="project" value="UMP" />
+            <param name="subject" value="" />
+            <param name="groupComment" value="{Device.GROUPNAME}" />
+            <param name="channelComment" value="{StartTime:YYYYMMDD_hhmmss} - {EndTime:YYYYMMDD_hhmmss}" />
+            <param name="logEvents" value="extended" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.VIN} ({Device.UUID})" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.DAT</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputMDF>
+      </outputfiles>
+      <outputfiles groupName=".*" type="configFiles">
+        <outputConfig>
+          <params>
+            <param name="configType" value="mcfg" />
+            <param name="useSegmentation" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).uccx</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+        </outputConfig>
+      </outputfiles>
+      <outputfiles groupName=".*" type="logData">
+        <outputText>
+          <params>
+            <param name="locale" value="DEU" />
+            <param name="dateFormat" value="%d.%m.%Y" />
+            <param name="timeFormat" value="%H:%M:%S" />
+            <param name="decimalDelim" value="," />
+            <param name="precision" value="8" />
+            <param name="columnSep" value=";" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss}).CSV</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputText>
+      </outputfiles>
+      <outputfiles groupName=".*" type="messageData">
+        <outputVectorAscii>
+          <params>
+            <param name="timestamps" value="relative" />
+            <param name="numberBase" value="hex" />
+            <param name="noJ1939Format" value="true" />
+            <param name="logEvents" value="true" />
+            <param name="timeZone" value="Russian Standard Time" />
+            <param name="fileComment" value="{Device.UUID}" />
+          </params>
+          <filePattern>{Device.VIN}_({Device.SERNO})_({StartTime:YYYYMMDD_hhmmss})_({EndTime:YYYYMMDD_hhmmss})_{Device.GROUPNAME}.ASC</filePattern>
+          <serverref fileserver="955e1679-df45-4768-b70d-c60792c2d845" />
+          <segmentation>
+            <power />
+            <reboot timegap="0" />
+          </segmentation>
+        </outputVectorAscii>
+      </outputfiles>
+    </datalogger>
+  </jobs>
+</unican2dnv>

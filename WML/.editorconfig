@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = none
+
+# CS8600: Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
+dotnet_diagnostic.CS8600.severity = silent
